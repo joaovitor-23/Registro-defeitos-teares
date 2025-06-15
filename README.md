@@ -1,4 +1,4 @@
-📊 Sistema de Controle de Teares
+📊 Sistema de Controle dos defeitos nos Teares
 
 Um sistema web completo para registro e gerenciamento de dados de produção têxtil, com foco no controle de defeitos em teares.
 
