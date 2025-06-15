@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        <h2>Cadastrar Novo Registro</h2>
+    </div>
+    <div class="card-body">
+        <form action="/salvar" method="POST">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">Número do Tear *</label>
+                        <input type="number" class="form-control" name="numero_tear" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Artigo do Tecido *</label>
+                        <input type="text" class="form-control" name="artigo_tecido" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Defeito *</label>
+                        <input type="text" class="form-control" name="defeito" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">Data *</label>
+                        <input type="date" class="form-control" name="data" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Horário *</label>
+                        <input type="time" class="form-control" name="horario" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Turno *</label>
+                        <select class="form-select" name="turno" required>
+                            <option value="">Selecione...</option>
+                            <option value="Manhã">Manhã</option>
+                            <option value="Tarde">Tarde</option>
+                            <option value="Noite">Noite</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a href="/registros" class="btn btn-secondary">Ver Registros</a>
+        </form>
+    </div>
+</div>
+{% endblock %}</title>
+</head>
+<body>
+
+</body>
+</html>

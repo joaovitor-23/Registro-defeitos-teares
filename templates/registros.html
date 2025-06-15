@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3">Registros de Produção</h1>
+        <div>
+            <div class="btn-group" role="group">
+                <a href="{{ url_for('exportar_excel') }}" class="btn btn-success me-2">
+                    <i class="bi bi-file-excel"></i> Excel
+                </a>
+                <a href="{{ url_for('exportar_pdf') }}" class="btn btn-secondary me-2">
+                    <i class="bi bi-file-pdf"></i> PDF
+                </a>
+                <a href="{{ url_for('limpar_banco') }}" class="btn btn-danger me-2"
+                   onclick="return confirm('⚠️ ATENÇÃO! Todos os registros serão apagados permanentemente. Confirmar?')">
+                    <i class="bi bi-trash"></i> Limpar Tudo
+                </a>
+                <a href="{{ url_for('index') }}" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> Novo Registro
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Tear</th>
+                    <th>Artigo</th>
+                    <th>Defeito</th>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Turno</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for registro in registros %}
+                <tr>
+                    <td>{{ registro.numero_tear }}</td>
+                    <td>{{ registro.artigo_tecido }}</td>
+                    <td>{{ registro.defeito }}</td>
+                    <td>{{ registro.data }}</td>
+                    <td>{{ registro.horario }}</td>
+                    <td>
+                        <span class="badge
+                            {% if registro.turno == 'Manhã' %}bg-info
+                            {% elif registro.turno == 'Tarde' %}bg-warning text-dark
+                            {% else %}bg-secondary
+                            {% endif %}">
+                            {{ registro.turno }}
+                        </span>
+                    </td>
+                    <td>
+                        <a href="{{ url_for('editar_registro', id=registro.id) }}"
+                           class="btn btn-sm btn-warning" title="Editar">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="7" class="text-center text-muted py-4">
+                        Nenhum registro encontrado
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}</title>
+</head>
+<body>
+
+</body>
+</html>

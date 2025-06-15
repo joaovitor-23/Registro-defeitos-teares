@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório de Teares</title>
+    <style>
+        body { font-family: Arial; margin: 1cm; }
+        h1 { color: #333; text-align: center; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .footer { margin-top: 30px; font-size: 0.8em; text-align: right; }
+    </style>
+</head>
+<body>
+    <h1>Relatório de Teares</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Tear</th>
+                <th>Artigo</th>
+                <th>Defeito</th>
+                <th>Data</th>
+                <th>Hora</th>
+                <th>Turno</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reg in registros %}
+            <tr>
+                <td>{{ reg.numero_tear }}</td>
+                <td>{{ reg.artigo_tecido }}</td>
+                <td>{{ reg.defeito }}</td>
+                <td>{{ reg.data }}</td>
+                <td>{{ reg.horario }}</td>
+                <td>{{ reg.turno }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <div class="footer">
+        Gerado em: {{ data_geracao }}
+    </div>
+</body>
+</html></title>
+</head>
+<body>
+
+</body>
+</html>
