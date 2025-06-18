@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header bg-warning text-white">
+        <h2 class="h5 mb-0">Editar Registro #{{ registro.id }}</h2>
+    </div>
+    <div class="card-body">
+        <form action="/editar/{{ registro.id }}" method="POST">
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    <div class="mb-3">
+                        <label class="form-label">Número do Tear *</label>
+                        <input type="number" class="form-control" name="numero_tear"
+                               value="{{ registro.numero_tear }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Artigo do Tecido *</label>
+                        <input type="text" class="form-control" name="artigo_tecido"
+                               value="{{ registro.artigo_tecido }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Defeito *</label>
+                        <input type="text" class="form-control" name="defeito"
+                               value="{{ registro.defeito }}" required>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="mb-3">
+                        <label class="form-label">Data *</label>
+                        <input type="date" class="form-control" name="data"
+                               value="{{ registro.data }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Horário *</label>
+                        <input type="time" class="form-control" name="horario"
+                               value="{{ registro.horario }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Turno *</label>
+                        <select class="form-select" name="turno" required>
+                            <option value="Manhã" {% if registro.turno == 'Manhã' %}selected{% endif %}>Manhã</option>
+                            <option value="Tarde" {% if registro.turno == 'Tarde' %}selected{% endif %}>Tarde</option>
+                            <option value="Noite" {% if registro.turno == 'Noite' %}selected{% endif %}>Noite</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="d-grid gap-2 d-md-block">
+                <button type="submit" class="btn btn-warning">Salvar</button>
+                <a href="/registros" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

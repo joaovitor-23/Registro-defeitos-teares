@@ -1,0 +1,130 @@
+/* ===== GERAL ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 10px;
+}
+
+.container-fluid {
+    max-width: 1200px;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    border: none;
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
+    padding: 0.75rem 1rem;
+}
+
+.btn {
+    white-space: nowrap;
+}
+
+/* ===== TABELA ===== */
+.table-responsive {
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.table {
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa !important;
+}
+
+/* ===== BADGES ===== */
+.badge {
+    padding: 0.4em 0.6em;
+    font-weight: 500;
+    min-width: 60px;
+}
+
+.bg-info {
+    background-color: #0dcaf0 !important;
+}
+
+.bg-warning {
+    background-color: #ffc107 !important;
+    color: #212529 !important;
+}
+
+/* ===== MOBILE (max-width: 768px) ===== */
+@media (max-width: 768px) {
+    .container-fluid {
+        padding: 0 10px;
+    }
+
+    .card, .table-responsive {
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    /* FORMULÁRIOS */
+    .card-body .row {
+        flex-direction: column;
+    }
+
+    .card-body .col-md-6 {
+        width: 100%;
+        padding: 0;
+    }
+
+    /* TABELA */
+    .table thead {
+        display: none;
+    }
+
+    .table tr {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+
+    .table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: none;
+        padding: 8px;
+    }
+
+    .table td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        margin-right: 15px;
+        color: #6c757d;
+    }
+
+    /* BOTÕES */
+    .btn-group-vertical {
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    /* CABEÇALHO */
+    .d-flex.justify-content-between {
+        flex-direction: column;
+    }
+
+    h1.h3 {
+        font-size: 1.25rem;
+        margin-bottom: 15px;
+    }
+}
